@@ -1,9 +1,9 @@
 // Modules
 var gulp = require('gulp'),
     del = require('del'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('sass')),
     autoprefixer = require('gulp-autoprefixer'),
-		rename = require('gulp-rename'),
+    rename = require('gulp-rename'),
     cleanCSS = require('gulp-clean-css'),
     combineMq = require('gulp-combine-mq'),
     strip = require('gulp-strip-css-comments'),
@@ -53,7 +53,7 @@ gulp.task('fontsync', function() {
 gulp.task('compile', function() {
     return gulp.src('src/base/united.scss')
         .pipe(sass({
-            outputStyle: 'compact',
+            outputStyle: 'compressed',
             errLogToConsole: true,
             quiet: true,
             includePaths: [
